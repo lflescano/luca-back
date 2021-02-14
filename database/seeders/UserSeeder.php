@@ -11,7 +11,7 @@ use DB;
 class UserSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeds for creating 11 Users. 10 using factory
      *
      * @return void
      */

@@ -11,7 +11,7 @@ use DB;
 class SubjectSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeds for creating 11 Subjects. 10 using factory
      *
      * @return void
      */

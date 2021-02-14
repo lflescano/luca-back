@@ -19,6 +19,7 @@ Route::group([], function ($router) {
     Route::get('/', 'Controller@routes');
 });
 
+/* TODO: Implementation of JWT token security */
 Route::group([
 
     'middleware' => 'api',
@@ -36,7 +37,7 @@ Route::group([
 });
 
 
-/*TODO Add to security with token*/
+/*TODO Add to security with token. This url are public now */
 Route::group([
 
     'middleware' => 'api',

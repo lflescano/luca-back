@@ -20,7 +20,12 @@ class QuestionTest extends TestCase
         $response = $this->getJson('/api/questions');
 
         $response
-            ->assertStatus(200);
+            ->assertStatus(200)
+            ->assertJsonStructure([
+                            'data', 
+                            'current_page',
+                            'last_page',
+            ]);;
     }
 
     /**
@@ -33,7 +38,18 @@ class QuestionTest extends TestCase
         $response = $this->getJson('/api/questions/1');
 
         $response
-            ->assertStatus(200);
+            ->assertStatus(200)
+            ->assertJsonStructure([
+                    'id',
+                    'title',
+                    'description',
+                    'user_id',
+                    'user',
+                    'subject',
+                    'subject_id',
+                    'created_at',
+                    'updated_at'
+            ]);
     }
 
     /**
@@ -52,6 +68,17 @@ class QuestionTest extends TestCase
             ->assertStatus(200)
             ->assertJson([
                 'created_at' => true,
+                "title"=> "Pregunta Test 3",
+                "description"=> "Esto es una descripcion de test pregunta 3"
+            ])
+            ->assertJsonStructure([
+                    'id',
+                    'title',
+                    'description',
+                    'user_id',
+                    'subject_id',
+                    'created_at',
+                    'updated_at'
             ]);
     }
 
@@ -71,6 +98,43 @@ class QuestionTest extends TestCase
             ->assertStatus(200)
             ->assertJson([
                 'created_at' => true,
+            ])
+            ->assertJsonStructure([
+                    'id',
+                    'title',
+                    'description',
+                    'user_id',
+                    'subject_id',
+                    'created_at',
+                    'updated_at'
+            ]);
+    }
+
+    /**
+     * Test destroy
+     *
+     * @return void
+     */
+    public function test_destroy()
+    {
+        $response = $this->deleteJson('/api/questions/1', [
+            "title"=> "Pregunta test 32",
+            "description"=> "Esto es una descripcion de test pregunta 3"
+        ]);
+
+        $response
+            ->assertStatus(200)
+            ->assertJson([
+                'created_at' => true,
+            ])
+            ->assertJsonStructure([
+                    'id',
+                    'title',
+                    'description',
+                    'user_id',
+                    'subject_id',
+                    'created_at',
+                    'updated_at'
             ]);
     }
 

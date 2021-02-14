@@ -27,7 +27,8 @@ class QuestionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage. Randomizes a Subject and an User to be attached to the Question
+     * which have been previously created with a seeder with factories.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -63,7 +64,7 @@ class QuestionController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resource. With user and subject relationship
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

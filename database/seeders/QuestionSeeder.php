@@ -14,7 +14,7 @@ use DB;
 class QuestionSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeds. Creating 50 Questions with Random Users and Subjects already created.
      *
      * @return void
      */
