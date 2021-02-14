@@ -10,4 +10,20 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    /**
+     * Returns the routes for the api
+     *
+     */
+    public function routes()
+    {
+        $routes = [
+            'version' => env('APP_NAME', 'None')
+        ];
+        if (app()->environment('local')) {
+            $collectedRoutes = collect(\Route::getRoutes());
+            $routes[] = $collectedRoutes->pluck('uri');
+        }
+        return response()->json($routes);
+    }
 }
