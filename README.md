@@ -28,6 +28,10 @@ Correr migraciones con seed
 
 `php artisan migrate --seed`
 
+Para correr test
+
+`php artisan test`
+
 Va a generar un usuario de prueba y otros 10 usuarios random más. Mi intención era si tenía el tiempo hacer un pequeño login para ver cuando se genera una pregunta como se carga el usuario logueado pero no llegue con los tiempos
 
 `admin@admin.com / Ac123456`
